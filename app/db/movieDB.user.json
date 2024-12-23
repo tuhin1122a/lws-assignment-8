@@ -1,0 +1,14 @@
+[
+  {
+    "_id": {
+      "$oid": "661e2720e4ffc982667a3f00"
+    },
+    "firstName": "tuhinur",
+    "lastName": "rahman",
+    "email": "tuhinrahmna48@gmail.com",
+    "password": "12345",
+
+    " agreedToTerms": "true",
+    "createdAt": "24-11-2024"
+  }
+]
