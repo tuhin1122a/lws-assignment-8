@@ -20,7 +20,6 @@ async function connectMongo() {
   }
   try {
     cached.connection = await cached.promise;
-    console.log("db conncet");
   } catch (e) {
     cached.promise = undefined;
     throw e;

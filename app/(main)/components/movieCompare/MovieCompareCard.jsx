@@ -16,7 +16,7 @@ const MovieCompareCard = ({ movie }) => {
         setMovieDetails(data);
         setLoading(false);
       } catch (error) {
-        console.log(error);
+        return {};
       }
     };
     getMovie();

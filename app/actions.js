@@ -25,7 +25,7 @@ export async function handleRegistration(formData) {
     });
 
     await newUser.save();
-    console.log("User registered successfully:", newUser);
+
     return { success: true, message: "User registered successfully!" };
   } catch (error) {
     console.error("Error registering user:", error.message);
@@ -49,7 +49,6 @@ export async function handleLogin(formData) {
 
   // Find the user by email
   const user = await User.findOne({ email });
-  console.log(user);
 
   if (!user) {
     return { success: false, message: "User not found!" };
