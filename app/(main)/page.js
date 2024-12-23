@@ -8,23 +8,24 @@ import MovieSection from "./components/MovieSection";
 
 const HomePage = async () => {
   let topMovies, trendingMovie, popularMovie;
+  let topMoviesError, trendingMovieError, popularMovieError;
 
   try {
     topMovies = await getTopRatedMovies();
   } catch (error) {
-    console.error("Error fetching top-rated movies:", error);
+    topMoviesError = "Failed to load top-rated movies.";
   }
 
   try {
     trendingMovie = await getTrendingMovies();
   } catch (error) {
-    console.error("Error fetching trending movies:", error);
+    trendingMovieError = "Failed to load trending movies.";
   }
 
   try {
     popularMovie = await getPopularMovies();
   } catch (error) {
-    console.error("Error fetching popular movies:", error);
+    popularMovieError = "Failed to load popular movies.";
   }
 
   return (
@@ -34,7 +35,7 @@ const HomePage = async () => {
         {trendingMovie ? (
           <MovieSection title="Trending Now" movies={trendingMovie.results} />
         ) : (
-          <div className="text-gray-400">Failed to load trending movies.</div>
+          <div className="text-gray-400">{trendingMovieError}</div>
         )}
         {popularMovie ? (
           <MovieSection
@@ -42,12 +43,12 @@ const HomePage = async () => {
             movies={popularMovie.results}
           />
         ) : (
-          <div className="text-gray-400">Failed to load popular movies.</div>
+          <div className="text-gray-400">{popularMovieError}</div>
         )}
         {topMovies ? (
           <MovieSection title="Top Rated" movies={topMovies.results} />
         ) : (
-          <div className="text-gray-400">Failed to load top-rated movies.</div>
+          <div className="text-gray-400">{topMoviesError}</div>
         )}
       </div>
     </>
