@@ -7,9 +7,7 @@ import HeroSection from "./components/HeroSection";
 import MovieSection from "./components/MovieSection";
 
 const HomePage = async () => {
-  let topMovies = null;
-  let trendingMovie = null;
-  let popularMovie = null;
+  let topMovies, trendingMovie, popularMovie;
 
   try {
     topMovies = await getTopRatedMovies();
@@ -36,9 +34,7 @@ const HomePage = async () => {
         {trendingMovie ? (
           <MovieSection title="Trending Now" movies={trendingMovie.results} />
         ) : (
-          <div className="text-gray-400 mb-8">
-            Failed to load trending movies.
-          </div>
+          <div className="text-gray-400">Failed to load trending movies.</div>
         )}
         {popularMovie ? (
           <MovieSection
@@ -46,9 +42,7 @@ const HomePage = async () => {
             movies={popularMovie.results}
           />
         ) : (
-          <div className="text-gray-400 mb-8">
-            Failed to load popular movies.
-          </div>
+          <div className="text-gray-400">Failed to load popular movies.</div>
         )}
         {topMovies ? (
           <MovieSection title="Top Rated" movies={topMovies.results} />
